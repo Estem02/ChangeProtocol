@@ -17,23 +17,32 @@ use pocketmine\plugin\PluginBase;
  */
 class ChangeProtocol extends PluginBase implements Listener {
 
+  //Function So that only the protocols give 1.19 enter the server
     public $acceptProtocol = [];
 
+  //Function to turn on the plugin
     public function onEnable() : void{
+
+  //Register The Events
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
+  //Protocols Gives 1.19
 		$this->acceptProtocol = [534, 533, 532, 530, 526, 524, 516, 514, 512];
     }
 
     /**
      * DataPacketReceiveEvent event
      */
+   //Function To receive the protocol 
     public function onDataPacketRecieve (DataPacketReceiveEvent $ev) : void{
 
+   //Get the protocol 
     	$pk = $ev->getPacket();
 
+   //Login Packet
     	if ($pk instanceof LoginPacket) {
 
+   //Variable to change the protocol
     		if (in_array($pk->protocol, $this->acceptProtocol)) {
     			$pk->protocol = ProtocolInfo::CURRENT_PROTOCOL;
          }
