@@ -42,7 +42,8 @@ class ChangeProtocol extends PluginBase implements Listener {
    //Login Packet
     	if ($pk instanceof LoginPacket) {
 
-   //Variable to change the protocol
+   //Variable to change the protocol       
+	/** @var array */
     		if (in_array($pk->protocol, $this->acceptProtocol)) {
     			$pk->protocol = ProtocolInfo::CURRENT_PROTOCOL;
          }
