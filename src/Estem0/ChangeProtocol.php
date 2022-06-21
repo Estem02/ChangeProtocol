@@ -14,6 +14,7 @@ use pocketmine\plugin\PluginBase;
  * Class MultiProtocol
  * @package multiprotocol
  * @author Estem0
+ * @contributor Gelumaxon
  */
 class ChangeProtocol extends PluginBase implements Listener {
 
